@@ -7,27 +7,15 @@ use BugApp\Models\Bug;
 class bugController{
     function add(){
         $bugManager = new BugManager();
+        $rep = $this->controlDom($_POST['add_NomDom']);
 
-        if (isset($_POST['submit']) ){
-
-            $rep = $this->controlDom($_POST['add_NomDom']);
-
-            if($rep['status'] == 'success'){
-                $bug = new Bug(null,$_POST['add_Title'],$_POST['add_Desc'],0,null,$_POST['add_NomDom'],$rep['query']);
-                var_dump($bug);
-                $bugManager->add($bug);
-                header('Location: list');
-            } else {
-                $content = $this->render('src/Views/addBug', [
-                    'add_Title'     =>  $_POST['title'], 
-                    'add_Desc'      =>  $_POST['Desc'], 
-                    'add_NomDom'    =>  $_POST['NomDom'] 
-                ]);
-                return $this->sendHttpResponse($content, 200);
-            }
+        if($rep['status'] == 'success'){
+            $bug = new Bug(null,$_POST['add_Title'],$_POST['add_Desc'],0,null,$_POST['add_NomDom'],$rep['query']);
+            var_dump($bug);
+            $bugManager->add($bug);
+            return $this->sendHttpResponse($bug, 201);
         } else {
-            $content = $this->render('src/Views/addBug', []);
-            return $this->sendHttpResponse($content, 200);
+           // TODO Si l'user n'a pas remplit le formulaire "URL"
         }
     }
     
@@ -70,16 +58,15 @@ class bugController{
         } else {
             $bugs = $bugManager->findAll();
             //var_dump($bugs);
-            $content = $this->render("src/Views/list",["bugs" => $bugs]);
-            return $this->sendHttpResponse($content, 200);
+            return $this->sendHttpResponse($bug, 201);
         }
     }
     
     function show($id){
         $bugManager = new BugManager();
         $bug = $bugManager->find($id);
-        $content = $this->render('src/Views/show', ['bug' => $bug]);
-        return $this->sendHttpResponse($content, 200);
+        //$content = $this->render('src/Views/show', ['bug' => $bug]);
+        return $this->sendHttpResponse($bug, 201);
     }
 
     function update($id){
@@ -105,17 +92,9 @@ class bugController{
         return $this->sendHttpResponse($content, 200);
     }
     
-    public function render($templatePath, $parametres){
-        $templatePath = $templatePath . '.php';
-        ob_start();
-        $parametres;
-        require($templatePath);
-        return ob_get_clean();
-    }
-    
     public static function sendHttpResponse($content, $code = 200) {
         http_response_code($code);
-        header('Content-Type: text/html');
+        header('Content-Type: application/json');
         echo $content;
     }
 }
