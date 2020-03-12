@@ -1,0 +1,10 @@
+Alors cher Kingdo du futur.
+
+Le fichier "params.php.dist" est necessaire au fonctionnement du code.
+1- tu vire le .dist
+2- tu remplis les valeurs manquantes
+3- c'est terminée \(^O^)/
+
+
+En cas d'erreur "Undefined index: bug in C:\xampp\htdocs\dashboard\works\TP_1\Views\list.php on line 2" Il faut :
+- la ligne 2 doit être $bugs = $parametres['bugs'];

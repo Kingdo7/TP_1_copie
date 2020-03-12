@@ -1,0 +1,75 @@
+body{
+    background: #d6eaf8;
+} 
+
+#container{
+    width: 100px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/* Bordered form */
+form {
+    width: auto;
+    padding: 50px;
+    border: 1px solid #f1f1f1;
+    background:  #ebedef;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+} 
+
+#container h1{
+    width: auto;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    text-align: center;
+} 
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 20px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+input[type=submit]:hover {
+    background-color: #d6eaf8;
+    color: #2980b9;
+    border: 1px solid #2980b9;
+}
+
+table {
+    border: medium solid  #154360;
+    border-collapse: collapse;
+    margin:auto;
+    width: auto;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+} th {
+    font-family: Fantasy;
+    border: thin solid  #fdfefe;
+    width: 200px;
+    padding: 5px;
+    background-color:  #2980b9;
+} td {
+    font-family: Fantasy;
+    border: thin solid #6495ed;
+    width: 200px;
+    padding: 5px;
+    text-align: center;
+    background-color:  #d6eaf8;
+} caption {
+    font-family: sans-serif;
+}

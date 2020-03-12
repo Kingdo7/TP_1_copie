@@ -1,0 +1,15 @@
+1- commiter
+2- src
+	controller
+	models
+	ressources
+	views
+3- composer init
+4- modifier "composer.json" + commande "composer update"
+5- pour chaque REQUIRE → use
+6- pour chaque CLASSE → namespace
+7- preceder les classe native pas "\"
+	new \PDO()
+8- Modifier template path
+
+---↑-FAIT-↑---

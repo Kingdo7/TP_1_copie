@@ -1,0 +1,27 @@
+list.php → ajouter case à cocher
+modifier bugManager → créer méthode findByStatus(); return bugs;
+
+bugController → 
+    1- va ton retourné du json ou html ?
+
+    2- $_GET['filter']?findByStatus(filter):findAll();
+    url = bug/list?filter=true
+
+    3- $response json
+
+
+    PISTE - js
+1- ecouteur sur checkbox, ecoute le change
+2- fonction de rappel
+    → objet xmlhttprequest
+    → url
+    $this.checked 
+        true → bug/list?filter=true
+        false → bug/list
+    → set_request_header(xmlhttprequest, true)
+    → send
+3- fonction de rappel
+    → json.parse(...)
+    → forEach bugs
+        → document.createElement('tr')
+    → inner html

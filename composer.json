@@ -1,0 +1,17 @@
+{
+    "name": "eleve/tp_1",
+    "authors": [
+        {
+            "name": "Julie",
+            "email": "j.bonnefond0@laposte.net"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4":{
+            "BugApp\\": "src/"
+        }
+    }
+}
